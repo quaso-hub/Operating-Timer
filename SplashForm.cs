@@ -19,6 +19,7 @@ namespace Operating_Timer
         public SplashForm()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
 
             this.Opacity = 0;
 
@@ -41,7 +42,8 @@ namespace Operating_Timer
             {
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Size = new Size(120, 120),
-                Location = new Point((this.Width - 120) / 2, 30)
+                Location = new Point((this.Width - 120) / 2, 30),
+                Anchor = AnchorStyles.Top
             };
 
             try
@@ -72,7 +74,8 @@ namespace Operating_Timer
                 Text = "RSUD Anuntaloko Parigi",
                 Font = new Font("Segoe UI", 12F, FontStyle.Bold),
                 ForeColor = Color.LightSkyBlue,
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Top
             };
             this.Controls.Add(lblRS);
 
@@ -82,7 +85,8 @@ namespace Operating_Timer
                 Text = "Operating Timer",
                 Font = new Font("Segoe UI", 20F, FontStyle.Bold),
                 ForeColor = Color.White,
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Top
             };
             this.Controls.Add(lblTitle);
 
@@ -92,7 +96,8 @@ namespace Operating_Timer
                 Text = "PT Teknomed Indo Timur | Elfatech",
                 Font = new Font("Segoe UI", 9F, FontStyle.Italic),
                 ForeColor = Color.Gainsboro,
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Top
             };
             this.Controls.Add(lblVendor);
 
@@ -102,7 +107,8 @@ namespace Operating_Timer
                 Text = "v1.0.0",
                 Font = new Font("Segoe UI", 8.5F),
                 ForeColor = Color.LightGray,
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right
             };
             this.Controls.Add(lblVersion);
 
@@ -113,7 +119,8 @@ namespace Operating_Timer
                 Location = new Point((this.Width - 350) / 2, this.Height - 45),
                 BarColor = Color.MediumSpringGreen,
                 BackBarColor = Color.FromArgb(35, 55, 90),
-                Value = 0
+                Value = 0,
+                Anchor = AnchorStyles.Bottom
             };
             this.Controls.Add(loadingBar);
 
@@ -125,6 +132,7 @@ namespace Operating_Timer
             splashTimer.Start();
 
             this.Load += SplashForm_Load;
+            this.Resize += (s, e) => UpdateLayoutPositions();
 
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
@@ -140,6 +148,11 @@ namespace Operating_Timer
         }
 
         private void SplashForm_Load(object sender, EventArgs e)
+        {
+            UpdateLayoutPositions();
+        }
+
+        private void UpdateLayoutPositions()
         {
             lblRS.Location = new Point((this.Width - lblRS.Width) / 2, 160);
             lblTitle.Location = new Point((this.Width - lblTitle.Width) / 2, 195);

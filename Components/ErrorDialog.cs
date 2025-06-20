@@ -27,6 +27,7 @@ namespace Operating_Timer.Components
             this.Opacity = 0.96;
 
             this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 15, 15));
+            this.AutoScaleMode = AutoScaleMode.Dpi;
 
             // Ikon
             Label iconLabel = new Label()
