@@ -53,21 +53,7 @@ namespace Operating_Timer
 
         private void OperatingTimer_Load(object sender, EventArgs e)
         {
-            clock = new ClockManager();
-            clock.OnTimeUpdate += (time) =>
-            {
-                lblTime.Text = time;
-
-                int rightMargin = 40;
-                lblTime.Location = new Point(this.Width - lblTime.PreferredWidth - rightMargin, 30);
-            };
-
-            clock.OnDateUpdate += (date) =>
-            {
-                lblDate.Text = $"{date}";
-                int rightMargin = 40;
-                lblDate.Location = new Point(this.Width - lblDate.PreferredWidth - rightMargin, 110);
-            };
+            // Clock initialization moved to InitClock
         }
 
         private async void OperatingTimer_Shown(object sender, EventArgs e)
@@ -159,9 +145,24 @@ namespace Operating_Timer
 
         private void InitClock()
         {
-            clock = new ClockManager();
-            clock.OnTimeUpdate += (time) => lblTime.Text = time;
-            clock.OnDateUpdate += (date) => lblDate.Text = date;
+            if (clock == null)
+            {
+                clock = new ClockManager();
+                clock.OnTimeUpdate += (time) =>
+                {
+                    lblTime.Text = time;
+                    int rMargin = 40;
+                    lblTime.Location = new Point(this.Width - lblTime.PreferredWidth - rMargin, 30);
+                };
+
+                clock.OnDateUpdate += (date) =>
+                {
+                    lblDate.Text = date;
+                    int rMargin = 40;
+                    lblDate.Location = new Point(this.Width - lblDate.PreferredWidth - rMargin, 110);
+                };
+            }
+
             clock.Start();
         }
 
