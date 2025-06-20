@@ -50,8 +50,18 @@ namespace Operating_Timer
             System.Diagnostics.Debug.WriteLine("[MainForm] SensorReader disposed on close.");
         }
 
+        private void OperatingTimer_Load(object sender, EventArgs e)
+        {
+            // Clock initialization moved to InitClock
+        }
 
-
+        private async void OperatingTimer_Shown(object sender, EventArgs e)
+        {
+            await Task.Delay(10);
+            InitWindow();
+            InitHeader();
+            InitClock();
+        }
 
         private async void OperatingTimer_Shown(object sender, EventArgs e)
         {
@@ -142,9 +152,24 @@ namespace Operating_Timer
 
         private void InitClock()
         {
-            clock = new ClockManager();
-            clock.OnTimeUpdate += (time) => lblTime.Text = time;
-            clock.OnDateUpdate += (date) => lblDate.Text = date;
+            if (clock == null)
+            {
+                clock = new ClockManager();
+                clock.OnTimeUpdate += (time) =>
+                {
+                    lblTime.Text = time;
+                    int rMargin = 40;
+                    lblTime.Location = new Point(this.Width - lblTime.PreferredWidth - rMargin, 30);
+                };
+
+                clock.OnDateUpdate += (date) =>
+                {
+                    lblDate.Text = date;
+                    int rMargin = 40;
+                    lblDate.Location = new Point(this.Width - lblDate.PreferredWidth - rMargin, 110);
+                };
+            }
+
             clock.Start();
         }
 
