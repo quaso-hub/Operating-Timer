@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operating Timer", "Operating Timer.csproj", "{BA5E57A8-BA7D-4748-9860-0D47A7828A92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatingTimer.Tests", "Tests/OperatingTimer.Tests.csproj", "{550E9B16-071F-4392-B05C-C6DE1DC8C8D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,8 +16,12 @@ Global
 		{BA5E57A8-BA7D-4748-9860-0D47A7828A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA5E57A8-BA7D-4748-9860-0D47A7828A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA5E57A8-BA7D-4748-9860-0D47A7828A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA5E57A8-BA7D-4748-9860-0D47A7828A92}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
+                {BA5E57A8-BA7D-4748-9860-0D47A7828A92}.Release|Any CPU.Build.0 = Release|Any CPU
+                {550E9B16-071F-4392-B05C-C6DE1DC8C8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+                {550E9B16-071F-4392-B05C-C6DE1DC8C8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+                {550E9B16-071F-4392-B05C-C6DE1DC8C8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+                {550E9B16-071F-4392-B05C-C6DE1DC8C8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+        EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
