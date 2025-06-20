@@ -99,6 +99,7 @@ namespace Operating_Timer.Components
             this.Controls.Add(btnReset);
 
             LayoutComponents();
+            this.Resize += (s, e) => LayoutComponents();
 
             saveKey = title.ToLower();
             LoadSavedTime();

@@ -14,11 +14,12 @@ namespace Operating_Timer.Components
         {
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.Black;
-            this.Opacity = 0.4; 
+            this.Opacity = 0.4;
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.Manual;
             this.Bounds = parent.Bounds;
             this.Owner = parent;
+            this.AutoScaleMode = AutoScaleMode.Dpi;
         }
     }
 }

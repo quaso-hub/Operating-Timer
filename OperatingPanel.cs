@@ -109,7 +109,8 @@ namespace Operating_Timer
                 Font = new Font("Segoe UI", 32F, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleCenter,
+                Anchor = AnchorStyles.Top
             };
             lblTitleTop.Location = new Point((this.Width - lblTitleTop.PreferredWidth) / 2, 20);
             this.Controls.Add(lblTitleTop);
@@ -120,7 +121,8 @@ namespace Operating_Timer
                 Font = new Font("Segoe UI", 20F, FontStyle.Regular),
                 ForeColor = Color.Gainsboro,
                 AutoSize = true,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleCenter,
+                Anchor = AnchorStyles.Top
             };
             lblTitleSub.Location = new Point(
                 (this.Width - lblTitleSub.PreferredWidth) / 2,
@@ -132,16 +134,18 @@ namespace Operating_Timer
             {
                 Font = new Font("Consolas", 50F, FontStyle.Bold),
                 ForeColor = Color.White,
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
             };
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
             lblTime.Location = new Point(this.Width - lblTime.PreferredWidth - 50, 60);
 
             lblDate = new Label()
             {
-                Font = new Font("Segoe UI", 28F), 
+                Font = new Font("Segoe UI", 28F),
                 ForeColor = Color.LightGray,
-                AutoSize = true
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
             };
             lblDate.Text = DateTime.Now.ToString("dd MMM yyyy");
             lblDate.Location = new Point(this.Width - lblDate.PreferredWidth - rightMargin, 130);
@@ -190,7 +194,8 @@ namespace Operating_Timer
                 Location = new Point(startX, startY),
                 Size = new Size(panelWidth, panelHeight),
                 BackColor = Color.FromArgb(20, 40, 70),
-                BorderStyle = BorderStyle.None
+                BorderStyle = BorderStyle.None,
+                Anchor = AnchorStyles.Top
             };
             panelTemp.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelWidth, panelHeight, 20, 20));
 
@@ -221,7 +226,8 @@ namespace Operating_Timer
                 Location = new Point(startX + panelWidth + spacing, startY),
                 Size = new Size(panelWidth, panelHeight),
                 BackColor = Color.FromArgb(20, 40, 70),
-                BorderStyle = BorderStyle.None
+                BorderStyle = BorderStyle.None,
+                Anchor = AnchorStyles.Top
             };
             panelHum.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelWidth, panelHeight, 20, 20));
 
@@ -309,13 +315,15 @@ namespace Operating_Timer
             TimerBlock operasi = new TimerBlock("OPERASI")
             {
                 Location = new Point(startX, startY),
-                Size = new Size(blockWidth, blockHeight)
+                Size = new Size(blockWidth, blockHeight),
+                Anchor = AnchorStyles.Top
             };
 
             TimerBlock anestesi = new TimerBlock("ANESTESI")
             {
                 Location = new Point(startX + blockWidth + spacing, startY),
-                Size = new Size(blockWidth, blockHeight)
+                Size = new Size(blockWidth, blockHeight),
+                Anchor = AnchorStyles.Top
             };
 
             this.Controls.Add(operasi);
@@ -330,7 +338,8 @@ namespace Operating_Timer
                 Image = LoadEmbeddedImage("Operating_Timer.Resources.Icons.logo_rsud.png"),
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Size = new Size(100, 100),
-                Location = new Point(30, 30)
+                Location = new Point(30, 30),
+                Anchor = AnchorStyles.Top | AnchorStyles.Left
             };
             this.Controls.Add(logoRS);
 
@@ -367,6 +376,7 @@ namespace Operating_Timer
                 BackColor = Color.FromArgb(60, 80, 110),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
                 Region = System.Drawing.Region.FromHrgn(
                     CreateRoundRectRgn(0, 0, 32, 32, 10, 10))
             };
@@ -384,6 +394,7 @@ namespace Operating_Timer
                 BackColor = Color.FromArgb(180, 60, 60),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
                 Region = System.Drawing.Region.FromHrgn(
                     CreateRoundRectRgn(0, 0, 32, 32, 10, 10))
             };
